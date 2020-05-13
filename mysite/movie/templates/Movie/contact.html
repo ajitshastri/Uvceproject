@@ -1,0 +1,31 @@
+{% extends 'Movie/finalbase.html'%}
+{% block content %}
+
+<div class="jumbotron  align-centre">
+
+<form method="post">
+    {% csrf_token %}
+    <div class="login-box">
+        <h1>Contact Us</h1>
+        <div class="textbox">
+            <h2>Name:</h2>
+            {{form.Name}}
+        </div>
+         <div class="textbox">
+             <h2>Email:</h2>
+             {{form.From_Email}}
+         </div>
+         <div class="textbox">
+             <h2>Message:</h2>
+             {{form.Message}}
+         </div>
+
+                   <div class="form-actions">
+                       <button type="submit" class="btn" >Send</button>
+                  </div>
+
+    </div>
+</form>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'Movie/finalbase.html'%}
+{% block content %}
+
+
+   <div class="container">
+<div class="w3-main padding " style="max-width:1500px;margin-top:60px;">
+      <div class="cols">
+        <div class="spa">
+
+       <h2 class="al">{{ movie.Movie_Name }}  </h2>
+            </div>
+          <div class="movie">
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <div class="polaroid" >
+                                        <img src="{{movie.Movie_Poster}}" alt="{{movie.Movie_Alt}}" width="250" height="350" title="{{movie.Movie_Name}}" >
+                                    </div>
+                                    </div>
+
+                                  <div class="al2">
+
+                                         {% if user.is_authenticated %}
+                                                {% if movie.Movie_id == r.movie_id.movie_id %}
+                                                             <a href="{% url 'watch' %}"><button>Watch</button></a>
+                                                            <a href="{% url 'userview' %}"><button>Seen</button></a>
+                                                            <a href="{% url 'userview' %}"><button>Add to Watchlist</button></a>
+                                                {% else %}
+                                                           <a href="{% url 'rent' pk=movie.movieid %}"><button>rent</button></a>
+                                                            <a href="{% url 'userview' %}"><button>Seen</button></a>
+                                                            <a href="{% url 'userview' %}"><button>Add to Watchlist</button></a>
+                                                {% endif %}
+
+                                        {% else %}
+                                                 <a href="{% url 'login' %}" ><button>rent</button></a>
+                                                <a href="{% url 'login' %}" ><button>Seen</button></a>
+                                                <a href="{% url 'login' %}" ><button>Add to Watchlist</button></a>
+                                         {% endif %}
+
+
+                                 <h3>Year released:</h3><p>{{movie.Movie_Year}}</p>
+
+                                <h3>Genre:</h3>
+                                <p>{{movie.Movie_Genre}}</p>
+
+                                 <h3>Language:</h3>
+                                 <p>{{movie.Movie_Language}}</p>
+                                 <h3>Ratings:</h3>
+                                 <p>{{movie.Movie_Rating}}
+                                    <a href="{{movie.Movie_Imdb}}">
+                                      <img src="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png" width="41" height="18" >
+                                    </a>
+                                  </p>
+                                </div>
+                                </div>
+                                <h3 class="al3">Plot: </h3>
+                                <p class="al3">{{movie.Movie_Plot|linebreaksbr}}</p>
+                                <div class="al3"> <h3>Trailer:</h3>
+                                    <iframe width="600" height="400"
+                                    src="{{movie.Movie_Trailer}}">
+
+                                     </iframe>
+
+                                </div>
+
+</div>
+                        </div>
+      </div>
+</div>
+       </div>
+{% endblock %}

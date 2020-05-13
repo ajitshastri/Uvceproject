@@ -1,0 +1,22 @@
+{% extends 'Movie/finalbase.html'%}
+{% block content %}
+<div class="container">
+<h2>Movies Rented by You:</h2>
+</div>
+<div class="container">
+
+     {% for rent in rent %}
+        <div class="column" >
+                <div class="movie">
+                            <div class="row" >
+                                <div class="column" >
+                                    <div class="polaroid" style= "width: 200px">
+                                     <a href="{% url 'rented_details' pk=rent.movie_id.movie_id%}"><img src="{{rent.movie_id.Movie_Poster}}" alt="{{rent.movie_id.Movie_Alt}}" width="200" height="300" title="{{rent.movie_id.Movie_Name}}"></a>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+        </div>
+ {% endfor %}
+    </div>
+{% endblock %}

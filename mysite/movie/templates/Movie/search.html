@@ -1,0 +1,32 @@
+{% extends 'Movie/finalbase.html'%}
+{% block content %}
+
+
+        {% if submitbutton == 'Search' and request.GET.search != '' %}
+        {% if results %}
+
+        <h1 class="colo">Results for <b>{{ request.GET.search }}:</b></h1>
+
+        {% for result in results %}
+
+                    <div class="column" >
+                           <div class="movie">
+                                  <div class="row" >
+                                         <div class="column" >
+                                             <div class="polaroid" style= "width: 200px">
+                                                  <a href="{% url 'movie_details' pk=result.Movie_id%}"><img src="{{result.Movie_Poster}}" alt="{{movie.Movie_Alt}}" width="200" height="300" title="{{movie.Movie_Name}}"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                         </div>
+                    </div>
+
+        {% endfor %}
+        {% else %}
+         <p style="color: white">No search results for this query</p>
+        {% endif %}
+        {% else %}
+        <p>no search result</p>
+        {% endif %}
+        </div>
+{% endblock %}

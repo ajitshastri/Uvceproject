@@ -1,0 +1,45 @@
+{% extends 'Movie/finalbase.html'%}
+{% block content %}
+
+
+   <div class="container">
+<div class="w3-main padding " >
+      <div class="cols">
+        <div class="spa">
+       <h2 class="al">{{ rented_detail.Movie_Name }}</h2>
+            </div>
+          <div class="movie">
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <div class="polaroid" style= "width: 250px" >
+                                        <img src="{{rented_detail.Movie_Poster}}" alt="{{rented_detail.Movie_Alt}}" width="250" height="350" title="{{rented_detail.Movie_Name}}" >
+                                    </div>
+                                    </div>
+
+                                  <div class="al2">
+                                         <a href="{% url 'watch' %}"><button>Watch</button></a>
+
+
+
+                                 <h3>Year released:</h3><p>{{rented_detail.Movie_Year}}</p>
+
+                                <h3>Genre:</h3><p>{{rented_detail.Movie_Genre}}</p>
+                                 <h3>Language:</h3><p>{{rented_detail.Movie_Language}}</p>
+                                 <h3>Ratings:</h3><p>{{rented_detail.Movie_Rating}}  <a href="{{rented_detail.Movie_Imdb}}"><img src="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png" width="41" height="18" ></a></p>
+                                </div>
+                                </div>
+                                <h3 class="al3">Plot: </h3><p class="al3">{{rented_detail.Movie_Plot|linebreaksbr}}</p>
+                                <div class="al3"> <h3>Trailer:</h3>
+                                    <iframe width="600" height="400"
+                                    src="{{rented_detail.Movie_Trailer}}">
+
+                                     </iframe>
+
+                                </div>
+
+</div>
+                        </div>
+      </div>
+</div>
+       </div>
+{% endblock %}

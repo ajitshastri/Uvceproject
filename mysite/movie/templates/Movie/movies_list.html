@@ -1,0 +1,80 @@
+{% extends 'Movie/page.html' %}
+
+{% block new %}
+
+        {% for movie in Latest %}
+
+        <div class="column" >
+                <div class="movie">
+                            <div class="row" >
+                                <div class="column" >
+                                    <div class="polaroid" style= "width: 200px">
+                                     <a href="{% url 'movie_details' pk=movie.Movie_id%}"><img src="{{movie.Movie_Poster}}" alt="{{movie.Movie_Alt}}" width="200" height="300" title="{{movie.Movie_Name}}"></a>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+
+        </div>
+        {% endfor %}
+
+
+
+{% endblock %}
+
+{% block kannada %}
+        {% for movie in Kannada %}
+
+        <div class="column" >
+                <div class="movie">
+                            <div class="row" >
+                                <div class="column" >
+                                    <div class="polaroid" style= "width: 200px">
+                                     <a href="{% url 'movie_details' pk=movie.Movie_id%}"><img src="{{movie.Movie_Poster}}" alt="{{movie.Movie_Alt}}" width="200" height="300" title="{{movie.Movie_Name}}"></a>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+
+        </div>
+        {% endfor %}
+
+{% endblock %}
+
+{% block telgu %}
+        {% for movie in Telgu %}
+
+        <div class="column" >
+                <div class="movie">
+                            <div class="row" >
+                                <div class="column" >
+                                    <div class="polaroid" style= "width: 200px">
+                                     <a href="{% url 'movie_details' pk=movie.Movie_id%}"><img src="{{movie.Movie_Poster}}" alt="{{movie.Movie_Alt}}" width="200" height="300" title="{{movie.Movie_Name}}"></a>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+
+        </div>
+        {% endfor %}
+
+{% endblock %}
+
+{% block midss %}
+        {% for movie in Rate %}
+
+        <div class="column" >
+                <div class="movie">
+                            <div class="row" >
+                                <div class="column" >
+                                    <div class="polaroid" style= "width: 200px">
+                                     <a href="{% url 'movie_details' pk=movie.Movie_id%}"><img src="{{movie.Movie_Poster}}" alt="{{movie.Movie_Alt}}" width="200" height="300" title="{{movie.Movie_Name}}"></a>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+
+        </div>
+        {% endfor %}
+
+{% endblock %}

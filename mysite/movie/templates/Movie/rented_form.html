@@ -1,0 +1,28 @@
+{% extends 'Movie/finalbase.html'%}
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="login-box">
+        <h1>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 'Movie Renting'&nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  </h1>
+         <div class="textbox">
+            <h2>Do you want to rent this movie for {{movie.Movie_Price}} rs?</h2>
+        </div>
+        <div class="textbox">
+            <h3>Please provide your email id below:</h3>
+
+            {{form.Name}}
+        </div>
+         <div class="polaroid" style= "width: 250px; padding-left: 150px" >
+                                        <img src="{{movie.Movie_Poster}}" alt="{{movie.Movie_Alt}}" width="250" height="350" title="{{movie.Movie_Name}}" >
+                                    </div>
+
+
+
+                   <div class="form-actions">
+                       <button type="submit" class="btn" >RENT</button>
+                  </div>
+
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'Movie/finalbase.html'%}
+{% block content %}
+
+<div class="container">
+{% for movie in movies %}
+        <div class="column" >
+                <div class="movie">
+                            <div class="row" >
+                                <div class="column" >
+                                    <div class="polaroid" style= "width: 200px">
+                                     <a href="{% url 'movie_details' pk=movie.Movie_id%}"><img src="{{movie.Movie_Poster}}" alt="{{movie.Movie_Alt}}" width="200" height="300" title="{{movie.Movie_Name}}"></a>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+        </div>
+ {% endfor %}
+    </div>
+
+
+</div>
+{% endblock %}
